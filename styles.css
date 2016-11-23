@@ -1,0 +1,46 @@
+
+
+p{
+margin: 0px;
+}
+
+
+div.col-md-2{
+	margin-right: 50px;
+	padding: 30px;
+	
+
+
+}
+
+
+
+input{
+	height: 30px;
+	border-radius: 5px;
+	box-shadow: 0px;
+	margin-left: 0px;
+
+}
+
+div.form-group{
+	margin: 10px;
+}
+
+
+
+
+button{
+	height: 30px;
+	margin-right: 0px;
+
+}
+
+header {
+	height: 150px;
+	margin: 0px;
+}
+
+body {
+	margin: 20px;
+}

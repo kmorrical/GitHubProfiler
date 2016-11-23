@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="" ng-app="app">
+
+<head>
+    <title>GitHubCameron</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div class="container" ng-controller="GitHubCtrl as home">
+        <header class="well">
+            <h1>GitHub Profiler</h1>
+            <p class="text-muted">Find out information about any GitHub user!</p>
+        </header>
+        <!--username data has gone into the model with ng-model-"home.username"-->
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search by GitHub username" ng-model="home.username" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2" ng-click="home.callGithubApi(home.username)">Go!</span>
+        </div>
+        <hr>
+        <div class="row" ng-if="home.user">
+            <div class="col-md-3"><img ng-src={{home.user.avatar_url}} class="img-circle img-responsive text-center"></img>
+                <hr>
+                <div class="text-center small">
+                    <p><span style="font-weight: bold">{{home.user.name}}</span> {{home.user.login}}</p>
+                    <br/>
+                    <p>{{home.user.location}}</p>
+                    <br/>
+                    <p ng-class=home.hireableColor>{{home.user.hireable}}</p>
+                    <br/>
+                    <p>Slingin' code since {{home.user.created_at | date: 'longDate'}}</p>
+                </div>
+                <br/>
+            </div>
+            <div class="col-md-3">
+                <div class="well text-muted text-center">
+                    <p>Followers </p>
+                    <br/>{{home.user.followers}}</div>
+            </div>
+            <div class="col-md-3">
+                <div class="well text-center">
+                    <p class="text-muted">Following</p>
+                    <br/> {{home.user.following}}</div>
+            </div>
+            <div class="col-md-3">
+                <div class="well text-center">
+                    <p class="text-muted">Public Repositories</p>
+                    <br/>{{home.user.public_repos}}</div>
+            </div>
+        </div>
+    </div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/home/home.controller.js">
+    </script>
+</body>
+
+</html>
